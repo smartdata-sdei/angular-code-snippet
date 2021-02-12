@@ -1,0 +1,97 @@
+<!-- ===========Cart Page/Section=========== -->
+<section class="cart_section ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="cart-tbl">
+                    <div class="cart-header">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-7 d-flex justify-content-between align-items-center">
+                                <h3 class="section_title ">Wishlist</h3>
+                                <h3 class="section_title ">{{wishlistLength}} items</h3>
+                            </div>
+                            <div class="col-lg-5 col-md-5 mt-3 mt-sm-0 mt-md-0">
+                                <div class="row">
+                                    <div class="col-md-6 col-6">
+                                        <button class="btn remove_it btn-block" (click)="removeAllWishlistItems()">Remove</button>
+                                    </div>
+                                    <div class="col-md-6 col-6 pl-0">
+                                        <button class="btn btn-border btn-block" (click)="moveToCart()">Move To
+                                            Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart-tables wishlist-table">
+                        <table>
+                            <ng-container *ngFor="let data of wishlistData">
+                                <tr *ngIf="wishlistLength>0">
+                                    <td class="prt-img">
+
+                                        <div class="custom-control custom-radio cart-checkbox">
+                                            <input type="radio" class="custom-control-input"
+                                                id="customCheck{{data?.id}}" value="{{data?.id}}" name="radio"
+                                                (change)="getCartId(data)">
+                                            <label class="custom-control-label" for="customCheck{{data?.id}}"></label>
+                                        </div>
+                                        <div class="image">
+                                            <img [src]="transform(data?.products?.image)" alt="">
+                                        </div>
+
+
+                                    </td>
+                                    <td class="crt-dtl">
+                                        <p>{{data?.products?.short_desc}}</p>
+                                        <h4>{{data?.products?.price | currency:'USD'}}</h4>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary" (click)="moveToCart()">Move to Cart</button>
+                                    </td>
+
+                                    <td class="remove-crt">
+                                        <button (click)="removeProductToWishlist(data)">
+                                            <i class="fas fa-trash"></i>
+                                            <span>Remove</span>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                            </ng-container>
+                            <tr *ngIf="wishlistLength==0&&userData">
+                                <h3 class="text-center">{{wishlistStatus}}</h3>
+                            </tr>
+                            <tr *ngIf="!userData">
+                                <h3 class="text-center">{{wishlistStatus}}</h3>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="cart-total">
+                    <table>
+
+                        <tr>
+                            <td>total items</td>
+                            <td>{{wishlistLength}}</td>
+
+                        </tr>
+                        <tr>
+                            <td class="gt-t">Total of Items</td>
+                            <td class="gto">{{totalAmount |currency:'USD'}}</td>
+
+                        </tr>
+                    </table>
+                    <button class="btn btn-success btn-block btn-lg mt-3 pl-5" (click)="backToCart()">Back To Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- ===========Cart Page/Section End=========== -->

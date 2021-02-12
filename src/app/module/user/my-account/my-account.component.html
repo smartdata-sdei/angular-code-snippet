@@ -1,0 +1,315 @@
+<!-- ==========Bread Crumbs========= -->
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-9">
+            <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb pl-0 mb-0">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">My Account</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- ==========Bread Crumbs End========= -->
+<section class="my-accountSection">
+    <div class="container">
+        <div class="row">
+            <!-- ==================Tab Links===============
+                      ================================================== -->
+            <div class="col-md-3">
+                <h4 class="tabc-title">Settings</h4>
+                <div class="ind-item">
+                    <ul id="tabs" class="nav nav-tabs resposive_tabsacc " role="tablist">
+                        <li class="nav-item">
+                            <a id="tab-A" href="#ss-account" class="nav-link active" data-toggle="tab" role="tab">
+                                <i class="fas fa-user-circle"></i> Account Information
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="tab-B" href="#ss-notifications" class="nav-link" data-toggle="tab" role="tab">
+                                <i class="fas fa-bell"></i>
+                                Notifications
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="tab-C" href="#ss-loginsec" class="nav-link" data-toggle="tab" role="tab">
+                                <i class="fas fa-lock"></i>
+                                Login & Security
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="tab-C" href="#ss-addresses" class="nav-link" data-toggle="tab" role="tab">
+                                <i class="fas fa-map-marked"></i>
+                                Your Addresses
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="tab-C" href="#ss-payments" class="nav-link" data-toggle="tab" role="tab">
+                                <i class="fas fa-money-check-alt"></i>
+                                Payments
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- ==================Tab Links End===============
+                        ================================================== -->
+            <!-- ==================Tabs Content===============
+                        ================================================== -->
+            <div class="col-md-9">
+                <div id="content" class="tab-content resposive_tabcontent " role="tablist">
+                    <!-- account setting tab -->
+                    <div id="ss-account" class="card tab-pane fade show active" role="tabpanel" aria-labelledby="tab-A">
+                        <div class="card-header" role="tab" id="heading-A">
+                            <h5 class="mb-0">
+                                <!-- Note: `data-parent` removed from here -->
+                                <a data-toggle="collapse" href="#ss-account-collapse" aria-expanded="true"
+                                    aria-controls="collapse-A">
+                                    <i class="fas fa-user-circle"></i>
+                                    Account Information
+                                </a>
+                            </h5>
+                        </div>
+                        <!-- Note: New place of `data-parent` -->
+                        <div id="ss-account-collapse" class="collapse " data-parent="#content" role="tabpanel"
+                            aria-labelledby="heading-A">
+                            <div class="card-body">
+                                <div class="tab_Container">
+                                    <h3>Account Information</h3>
+                                    <table class="account-table">
+                                        <tbody>
+                                            <tr>
+                                                <td>Name:</td>
+                                                <td>James Janoar</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Email Address:</td>
+                                                <td>jamesjan@gmail.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Phone number:</td>
+                                                <td>+1 234 567980</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="col-md-3 px-0 mt-4">
+                                        <a class="btn btn-border btn-block" data-target="#edit_Account"
+                                            data-toggle="modal" href="#">Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Notifications  tab -->
+                    <div id="ss-notifications" class="card tab-pane fade  " role="tabpanel" aria-labelledby="tab-A">
+                        <div class="card-header" role="tab" id="heading-A">
+                            <h5 class="mb-0">
+                                <!-- Note: `data-parent` removed from here -->
+                                <a data-toggle="collapse" href="#ss-notifications-collapse" aria-expanded="true"
+                                    aria-controls="collapse-A">
+                                    <i class="fas fa-bell"></i>
+                                    Notifications
+                                </a>
+                            </h5>
+                        </div>
+                        <!-- Note: New place of `data-parent` -->
+                        <div id="ss-notifications-collapse" class="collapse " data-parent="#content" role="tabpanel"
+                            aria-labelledby="heading-A">
+                            <div class="card-body">
+                                <div class="tab_Container">
+                                    <h3>Notifications</h3>
+                                    <div class="notifications_list">
+                                        <div class="list_item not_read">
+                                            <i class="fas fa-bell"></i>
+                                            <p>
+                                                Your order is dispatched and being ready to be shipped.
+                                                <span>10 min ago</span>
+                                            </p>
+                                        </div>
+                                        <div class="list_item">
+                                            <i class="fas fa-bell"></i>
+                                            <p>
+                                                One of your order item is cancelled
+                                                <span>10 min ago</span>
+                                            </p>
+                                        </div>
+                                        <div class="list_item">
+                                            <i class="fas fa-bell"></i>
+                                            <p>
+                                                Your order is dispatched and being ready to be shipped.
+                                                <span>10 min ago</span>
+                                            </p>
+                                        </div>
+                                        <div class="list_item">
+                                            <i class="fas fa-bell"></i>
+                                            <p>
+                                                One of your order item is cancelled
+                                                <span>10 min ago</span>
+                                            </p>
+                                        </div>
+                                        <div class="list_item">
+                                            <i class="fas fa-bell"></i>
+                                            <p>
+                                                Your order is dispatched and being ready to be shipped.
+                                                <span>10 min ago</span>
+                                            </p>
+                                        </div>
+                                        <div class="list_item">
+                                            <i class="fas fa-bell"></i>
+                                            <p>
+                                                One of your order item is cancelled
+                                                <span>10 min ago</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Login Sec tab -->
+                    <div id="ss-loginsec" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
+                        <div class="card-header" role="tab" id="heading-C">
+                            <h5 class="mb-0">
+                                <a class="collapsed" data-toggle="collapse" href="#ss-loginsec-collapse"
+                                    aria-expanded="false" aria-controls="collapse-C">
+                                    <i class="fas fa-lock"></i>
+                                    Login & Security
+                                </a>
+                            </h5>
+                        </div>
+                        <div id="ss-loginsec-collapse" class="collapse" role="tabpanel" data-parent="#content"
+                            aria-labelledby="heading-C">
+                            <div class="card-body">
+                                <div class="tab_Container">
+                                    <h3>Login &amp; Security</h3>
+                                    <table class="account-table">
+                                        <tbody>
+                                            <tr>
+                                                <td>Email Address:</td>
+                                                <td>jamesjan@gmail.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Password:</td>
+                                                <td>*********</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="col-md-3 px-0 mt-4">
+                                        <a class="btn btn-border btn-block" data-target="#edit_loginsettings"
+                                            data-toggle="modal" href="#">Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- supplier tab -->
+                    <div id="ss-addresses" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
+                        <div class="card-header" role="tab" id="heading-C">
+                            <h5 class="mb-0">
+                                <a class="collapsed" data-toggle="collapse" href="#ss-addresses-collapse"
+                                    aria-expanded="false" aria-controls="collapse-C">
+                                    <i class="fas fa-map-marked"></i>
+                                    Your Addresses
+                                </a>
+                            </h5>
+                        </div>
+                        <div id="ss-addresses-collapse" class="collapse" role="tabpanel" data-parent="#content"
+                            aria-labelledby="heading-C">
+                            <div class="card-body">
+                                <div class="tab_Container">
+                                    <h3 class="mb-4"><i class="fas fa-map-marked"></i> Your Shipping Addresses</h3>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="address_box">
+                                                <i class="fas fa-map-marked"></i>
+                                                <p>3981 Henery Street, Wichita, KS, Kansas, 67226 USA</p><a
+                                                    class="btn btn-border" data-target="#edit_address"
+                                                    data-toggle="modal" href="#">Edit</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="address_box">
+                                                <i class="fas fa-map-marked"></i>
+                                                <p>3981 Henery Street, Wichita, KS, Kansas, 67226 USA</p><a
+                                                    class="btn btn-border" data-target="#edit_addresss"
+                                                    data-toggle="modal" href="#">Edit</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 px-0 mt-4">
+                                        <a class="btn btn-primary btn-block" data-target="#addnew_address"
+                                            data-toggle="modal" href="#">Add New Address</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- help aand feedback tab -->
+                    <div id="ss-payments" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-C">
+                        <div class="card-header" role="tab" id="heading-C">
+                            <h5 class="mb-0">
+                                <a class="collapsed" data-toggle="collapse" href="#ss-payments-collapse"
+                                    aria-expanded="false" aria-controls="collapse-C">
+                                    <i class="fas fa-money-check-alt"></i>
+                                    Payments
+                                </a>
+                            </h5>
+                        </div>
+                        <div id="ss-payments-collapse" class="collapse" role="tabpanel" data-parent="#content"
+                            aria-labelledby="heading-C">
+                            <div class="card-body">
+                                <div class="tab_Container">
+                                    <h3 class="mb-4"><i class="fas fa-map-marked"></i> Your Payment Cards</h3>
+
+
+                                    <div class="card-list">
+                                        <div class="d-flex card-item justify-content-between align-items-center">
+                                            <div class="d-flex">
+                                                <img src="assets/images/card.svg" class="mr-2" alt="">
+                                                <div>
+                                                    <p> SBI **** **** 1234</p>
+                                                    <span>Kristina Johnson</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex">
+                                                <button class="btn btn-border btn-sm" data-toggle="modal"
+                                                    data-target="#addCardModal"><i class="fas fa-pencil-alt"></i>
+                                                    Edit</button>
+                                                <button class="btn-reset"><i class="fas fa-trash-solid"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex card-item justify-content-between align-items-center">
+                                            <div class="d-flex">
+                                                <img src="assets/images/card.svg" class="mr-2" alt="">
+                                                <div>
+                                                    <p> SBI **** **** 1234 </p>
+                                                    <span>Kristina Johnson</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="d-flex">
+                                                <button class="btn btn-border btn-sm" data-toggle="modal"
+                                                    data-target="#addCardModal"><i class="fas fa-pencil-alt"></i>
+                                                    Edit</button>
+                                                <button class="btn-reset"><i class="fas fa-trash-solid"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 px-0 mt-4">
+                                        <a class="btn btn-primary btn-block" data-toggle="modal"
+                                            data-target="#addCardModal" href="#">Add New Card</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

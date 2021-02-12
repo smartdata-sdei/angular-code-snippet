@@ -1,0 +1,438 @@
+<!-- ==========  Product_uppper_details	========== -->
+<section class="product-dtlupper">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <p-galleria [(value)]="images" [responsiveOptions]="responsiveOptions"
+                    [containerStyle]="{'max-width': '660px'}" [numVisible]="5"
+                    [autoPlay]="true">
+                    <ng-template pTemplate="item" let-item>
+                        <img [src]="mainImage" style="width: 100%; display: block;" />
+                    </ng-template>
+                    <ng-template pTemplate="thumbnail" let-item>
+                        <div class="p-grid p-nogutter p-justify-center">
+                            <img [src]="getUrl(item?.image)" (click)="setItemImage(item?.image)" />
+                        </div>
+                    </ng-template>
+                </p-galleria>
+                <!-- <div class="product-images">
+                    <div class="big_img">
+                        <img [src]="transform(getProductData?.image)"alt="">
+                    </div>
+                    <div class="img_thumbnails">
+                        <div>
+                            <img src="assets/images/thermal.JPG" alt="">
+                        </div>
+                        <div>
+                            <img src="assets/images/thermal.JPG" alt="">
+                        </div>
+                        <div>
+                            <img src="assets/images/thermal.JPG" alt="">
+                        </div>
+
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="col-lg-5 offset-lg-1 col-md-6">
+                <div class="upper_info">
+                    <h2>{{getProductData?.name}}</h2>
+                    <h5> <img src="assets/images/client-1.jpg" class="icon" alt=""> Brenmiller Energy</h5>
+                    <p>{{getProductData?.short_desc}} </p>
+                    <div class="rating mb-3"><i class="fas fa-star"></i> <i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star unfilled"></i> 4.5
+                    </div>
+                    <h1>{{getProductData?.price | currency:'USD'}} <span></span></h1>
+                    <h3>(Min 10 Orders)</h3>
+                    <div class="pd_quantity mt-3">
+                        <div id="field1">
+                            <button type="button" id="sub" class="sub" (click)="cartDecrement()">-</button>
+                            <input type="number" class="quant_input" id="1" value="{{cartQuantity}}" min="1" max="99" />
+                            <button type="button" id="add" class="add" (click)="cartIncrement()">+</button>
+                        </div>
+
+                        <!-- <h4>Total <span>$2368.99</span></h4> -->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-6 pr-0">
+                            <a class="btn btn-primary btn-block btn-lg" (click)="addToCart()">Add to Cart</a>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-6">
+                            <a href="#" class="btn btn-success btn-block btn-lg">Buy Now</a>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <a class="btn btn-border btn-block btn-lg" (click)="addToWishlist()">Add to Wishlist</a>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 ">
+                            <p class="imp_pd_features"> <svg aria-hidden="true" class="icon">
+                                    <use xlink:href="assets/images/symbols.svg#100_gurantee_icon"></use>
+                                </svg> Quality assured by imepress</p>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 ">
+                            <p class="imp_pd_features"> <svg aria-hidden="true" class="icon">
+                                    <use xlink:href="assets/images/symbols.svg#payment_secure_icon"></use>
+                                </svg> Quality assured by imepress</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- ==========  Product_uppper_details End	========== -->
+
+<!-- ============Product Details Tabs=========== -->
+<section class="product_dt-tabs">
+    <div class="container">
+        <ul class="nav nav-tabs custom-nav-tabs mb-4" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#pr-info" role="tab"
+                    aria-controls="home" aria-selected="true">Product Information</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#pr-feature" role="tab"
+                    aria-controls="profile" aria-selected="false">Product features</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#supplier-info" role="tab"
+                    aria-controls="contact" aria-selected="false">Supplier Information</a>
+            </li>
+        </ul>
+        <div class="tab-content mt-1" id="myTabContent">
+            <div class="tab-pane custom-tab-pane bg-white fade show active" id="pr-info" role="tabpanel"
+                aria-labelledby="home-tab">
+                <ul class="product_pointlist">
+                    <li>The bGenTm is used to collect and recover heat from the flue gas output, to generate electricity
+                        and/or steam. Heat is stored and later used, at time periods that maximize savings and optimize
+                        return on investment. </li>
+
+                </ul>
+            </div>
+            <div class="tab-pane  custom-tab-pane fade bg-white" id="pr-feature" role="tabpanel"
+                aria-labelledby="profile-tab">
+                <ul class="product_pointlist">
+                    <li>The bGenTm is used to collect and recover heat from the flue gas output, to generate electricity
+                        and/or steam. Heat is stored and later used, at time periods that maximize savings and optimize
+                        return on investment. </li>
+
+                </ul>
+            </div>
+            <div class="tab-pane custom-tab-pane fade bg-white" id="supplier-info" role="tabpanel"
+                aria-labelledby="contact-tab">
+                <div class="supplier_inf p-3 py-4">
+                    <div class="text-center"> <img src="assets/images/client-1.jpg" width="100" class="rounded-circle">
+                        <h3 class="my-2 bold">Brenmiller Egency</h3> <span class="mt-1 mb-2 clearfix">Agriculture
+                            Product Supplier</span> <small class="mt-4">I am an android developer working at google Inc
+                            at california,USA</small>
+                        <div class="social-buttons mt-5">
+                            <a class="neo-button"><i class="fab fa-facebook-f fa-1x"></i> </a>
+                            <a class="neo-button"><i class="fab fa-linkedin fa-1x"></i></a>
+                            <a class="neo-button"><i class="fab fa-google fa-1x"></i> </a>
+                            <a class="neo-button"><i class="fab fa-youtube fa-1x"></i> </a>
+                            <a class="neo-button"><i class="fab fa-twitter fa-1x"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ============Product Details Tabs End=========== -->
+
+
+<!-- ===========Products Section============= -->
+<section class="product_section">
+    <div class="container">
+        <h3 class="section_title mb-4">Similar Products</h3>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6">
+                <div class="improduct_block">
+                    <div class="product_image">
+                        <img src="assets/images/thermal.JPG" alt="">
+                        <button><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product_inner">
+                        <h2>thermal enegry storage</h2>
+                        <p>The bGenTm is used to collect and recover heat from the flue gas output, to generate
+                            electricity and/or steam. Heat is stored and later used, at time periods that maximize
+                            savings and optimize return on investment. </p>
+                        <h3>$76.00</h3>
+                        <div class="rating mb-3"><i class="fas fa-star"></i> <i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star unfilled"></i>
+                            4.5</div>
+                        <button class="btn btn-primary">Buy Now
+                            <svg aria-hidden="true" class="icon" height="18px" width="18px">
+                                <use xlink:href="assets/images/symbols.svg#arrow_white_icon"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="improduct_block">
+                    <div class="product_image">
+                        <img src="assets/images/thermal.JPG" alt="">
+                        <button><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product_inner">
+                        <h2>thermal enegry storage</h2>
+                        <p>The bGenTm is used to collect and recover heat from the flue gas output, to generate
+                            electricity and/or steam. Heat is stored and later used, at time periods that maximize
+                            savings and optimize return on investment. </p>
+                        <h3>$80.00</h3>
+                        <div class="rating mb-3"><i class="fas fa-star"></i> <i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star unfilled"></i>
+                            4.5</div>
+                        <button class="btn btn-primary">Buy Now
+                            <svg aria-hidden="true" class="icon" height="18px" width="18px">
+                                <use xlink:href="assets/images/symbols.svg#arrow_white_icon"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="improduct_block">
+                    <div class="product_image">
+                        <img src="assets/images/thermal.JPG" alt="">
+                        <button><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product_inner">
+                        <h2>thermal enegry storage</h2>
+                        <p>The bGenTm is used to collect and recover heat from the flue gas output, to generate
+                            electricity and/or steam. Heat is stored and later used, at time periods that maximize
+                            savings and optimize return on investment. </p>
+                        <h3>$75.00</h3>
+                        <div class="rating mb-3"><i class="fas fa-star"></i> <i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star unfilled"></i>
+                            4.5</div>
+                        <button class="btn btn-primary">Buy Now
+                            <svg aria-hidden="true" class="icon" height="18px" width="18px">
+                                <use xlink:href="assets/images/symbols.svg#arrow_white_icon"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ===========Products Section End============= -->
+
+
+<!-- ==============Product Text revies=========== -->
+<section class="product_text_reviews">
+    <div class="container">
+        <h3 class="section_title mb-4">Product Reviews (23)</h3>
+        <div class="row">
+            <div class="col-lg-3 col-md-4  mb-4">
+                <div class="review_number bg-white p-4 text-center">
+                    <h1>4.6/5</h1>
+                    <div class="rating mb-3"><i class="fas fa-star"></i> <i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star unfilled"></i>
+                    </div>
+
+                    <button class="btn btn-secondary btn-lg btn-block py-2 px-0" data-toggle="modal"
+                        data-target="#AddreviewModal">
+                        Add Your Review
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-lg-9 col-md-8 mb-4">
+                <div class="top-reviews bg-white ">
+                    <div class="owl-carousel" id="rop_rev_carousel">
+                        <div class="item">
+                            <div class="image">
+                                <i class="fas fa-user-circle"></i>
+                                <h4>james carter</h4>
+                                <h5>1 hour ago</h5>
+                            </div>
+                            <div class="review_text">
+                                <div class="rating mb-3"><i class="fas fa-star"></i> <i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star unfilled"></i> 4.5</div>
+                                <p>The window were bold, in vows, their into thousands the every the in he is be remote
+                                    had purpose
+                                    to saw in rung a food, for</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 top-reviews">
+                <div class="item text_review_item bg-white">
+                    <div class="image">
+                        <i class="fas fa-user-circle"></i>
+                        <h4>james carter</h4>
+                        <h5>1 hour ago</h5>
+                    </div>
+                    <div class="review_text">
+                        <div class="rating mb-3"><i class="fas fa-star"></i> <i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star unfilled"></i>
+                            4.5</div>
+                        <p>The window were bold, in vows, their into thousands the every the in he is be remote had
+                            purpose
+                            to saw in rung a food, for</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 top-reviews">
+                <div class="item text_review_item bg-white">
+                    <div class="image bg-success">
+                        <i class="fas fa-user-circle"></i>
+                        <h4>james carter</h4>
+                        <h5>1 hour ago</h5>
+                    </div>
+                    <div class="review_text">
+                        <div class="rating mb-3"><i class="fas fa-star"></i> <i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star unfilled"></i>
+                            4.5</div>
+                        <p>The window were bold, in vows, their into thousands the every the in he is be remote had
+                            purpose
+                            to saw in rung a food, for</p>
+
+                        <div class="review-images">
+                            <a href="assets/images/product-detail.png" data-toggle="lightbox" class="rev_img">
+                                <img src="assets/images/product-detail.png" class="img-fluid">
+                            </a>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 top-reviews">
+                <div class="item text_review_item bg-white">
+                    <div class="image bg-secondary">
+                        <i class="fas fa-user-circle"></i>
+                        <h4>james carter</h4>
+                        <h5>1 hour ago</h5>
+                    </div>
+                    <div class="review_text">
+                        <div class="rating mb-3"><i class="fas fa-star"></i> <i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star unfilled"></i>
+                            4.5</div>
+                        <p>The window were bold, in vows, their into thousands the every the in he is be remote had
+                            purpose
+                            to saw in rung a food, for</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 top-reviews">
+                <div class="item text_review_item bg-white">
+                    <div class="image bg-grey">
+                        <i class="fas fa-user-circle"></i>
+                        <h4>james carter</h4>
+                        <h5>1 hour ago</h5>
+                    </div>
+                    <div class="review_text">
+                        <div class="rating mb-3"><i class="fas fa-star"></i> <i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star unfilled"></i>
+                            4.5</div>
+                        <p>The window were bold, in vows, their into thousands the every the in he is be remote had
+                            purpose
+                            to saw in rung a food, for</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==============Product Text revies End=========== -->
+
+<!-- ===========Product Video Reviews========== -->
+<section class="product_video_review">
+    <img src="assets/images/vide-rev.jpg" width="100%" alt="">
+    <button class="play_button"><i class="fas fa-play"></i></button>
+    <div class="video-wrapper">
+        <div class="video-container" id="video-container">
+            <!-- <video controls id="video" preload="metadata"  poster="assets/images/vide-rev.jpg">
+            <source src="assets/images/video.mp4" type="video/mp4">
+        </video>
+
+        <div class="play-button-wrapper">
+            <div title="Play video" class="play-gif" id="circle-play-b">
+                <svg aria-hidden="true" class="icon"
+                height="18px" width="18px">
+                <use xlink:href="assets/images/symbols.svg#play_button"></use></svg>
+            </div>
+        </div> -->
+        </div>
+    </div>
+    <div class="container ">
+        <div class="vid_Rev_text ">
+            <h4>James Makrov</h4>
+            <p>Numbered of and reached escape, the world however a concepts to of has voices sometimes live choose and
+                leaning I understand payload everything options children's your concepts attend; That hopes a which,
+                more </p>
+        </div>
+    </div>
+</section>
+
+<!-- Add Review Modal -->
+<div class="modal fade custom-modal  custom-modal-wmh" id="AddreviewModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header flex-column px-4 no-border pb-0">
+                <h5 class="modal-title" id="exampleModalLabel">Leave a Review</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <svg class="icon" height="22" width="22" aria-hidden="true">
+                            <use xlink:href="assets/images/symbols.svg#modal_close_icon"></use>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body px-4 pb-4 pt-0">
+                <button type="button" class="close closecross" data-dismiss="modal" aria-label="Close">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="assets/images/symbols.svg#close_popup_icon"></use>
+                    </svg>
+                </button>
+                <form action="">
+                    <div class="review-form">
+                        <p class="mb-3">You're reviewing for <strong class="color-primary">Agriculture tools
+                                combo of 6</strong></p>
+                        <div class="reviewinput">
+                            <div class="d-flex align-items-center p-3 rv_input-header ">
+                                <div class="mr-3">
+
+                                    <i class="fas fa-user-circle fa-2x"></i>
+
+                                </div>
+                                <span class="rev_nm">tom holland</span>
+                            </div>
+                            <textarea class="p-3" name="" id="" cols="30" rows="6"
+                                placeholder="Your review goes here"></textarea>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="review_file">Upload a file</label>
+                            <label for="review_file" class="border-input"><input type="file" class="d-none"
+                                    id="review_file" onchange="readURL(this);"> Select File</label>
+                            <img id="blah" src="#" alt="your image" />
+
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-md px-5">Submit Review</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Review Modal -->

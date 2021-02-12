@@ -1,0 +1,115 @@
+<!-- ==========Category page header========= -->
+<section class="categ_page_header" style="background-image: url({{getCategoryProductDetails?.image}});">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-4 d-flex flex-column  justify-content-center">
+                <h2>{{getCategoryProductDetails?.name}}</h2>
+            </div>
+            <div class="col-lg-6 col-md-8">
+                <div class="header_Desc">
+                    <p>{{getCategoryProductDetails?.description}}</p>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</section>
+    <!-- ==========Category page header========= -->
+
+  <!-- ==========Bread Crumbs========= -->
+  <div class="container my-4">
+      <div class="row">
+          <div class="col-md-9">
+            <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb pl-0">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">categories</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">{{getCategoryProductDetails?.name}}</li>
+                </ol>
+              </nav>
+          </div>
+
+          <div class="col-md-3 text-right">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-white filter-button" data-toggle="modal" data-target="#FiltersModal">
+                <svg aria-hidden="true" class="icon"
+                height="18px" width="18px">
+                <use xlink:href="assets/images/symbols.svg#filter_icon"></use></svg>	Filters
+              </button>
+              
+        
+        
+          </div>
+      </div>
+
+
+      
+</div>
+<!-- ==========Bread Crumbs End========= -->
+
+
+<section class="category_middle_Desc">
+<div class="container">
+<h3>available products</h3>
+<p>Explore our range of signature skincare formulas made with<br>nourishing elements from Dead Sea. </p>
+
+</div>
+
+</section>
+
+<!-- ===========Products Section============= -->
+<section class="product_section bg-white">
+    <div class="container">
+    
+        <div class="row">
+            <ng-container *ngFor="let data of getCategoryProductDetails?.product">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="improduct_block">
+                      <div class="product_image">
+                      <img [src]="transform(data?.image)" alt="product_img">
+                      <button><i class="far fa-heart"></i></button>	
+                      </div>  
+                      <div class="product_inner">
+                          <h2>{{data?.name}}</h2>
+                          <p>{{data?.short_desc}}</p>
+                          <h3>{{data?.price | currency:'USD'}}</h3>
+                          <div class="rating mb-3"><i class="fas fa-star"></i> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star unfilled"></i> 4.5</div>
+                          <button class="btn btn-primary" routerLink="/product/details/{{data?.id}}">Buy Now
+                              <svg aria-hidden="true" class="icon"
+                              height="18px" width="18px">
+                              <use xlink:href="assets/images/symbols.svg#arrow_white_icon"></use></svg>	
+                          </button>
+                      </div>
+                    </div>
+                  </div>
+            </ng-container>
+            
+        </div>
+    </div>
+</section>
+<!-- ===========Products Section End============= -->
+
+
+
+
+<!-- ===========Product Video Reviews========== -->
+<section class="product_video_review">
+  <!-- <img src="assets/images/vide-rev.jpg" width="100%" alt=""> -->
+
+<div class="video-wrapper">
+
+        <video class="video" id="video" width="100%" poster="assets/images/vide-rev.jpg">
+            <source src="assets/images/video.mp4"  type="video/mp4" />
+        </video>
+    
+        <button class="playpause" id="playpause"><i class="fas fa-play"></i></button>
+     
+
+</div>
+<div class="container ">
+    <div class="vid_Rev_text">
+<h4>James Makrov</h4>
+<p>Numbered of and reached escape, the world however a concepts to of has voices sometimes live choose and leaning I understand payload everything options children's your concepts attend; That hopes a which, more </p>
+    </div>
+</div>
+</section>

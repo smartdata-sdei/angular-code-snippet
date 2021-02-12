@@ -1,0 +1,34 @@
+.custom-carousel .p-carousel-prev, .custom-carousel .p-carousel-next { cursor: pointer; position: absolute;
+    z-index: 1;
+    left: 15px;
+    border: 0;
+    background: #D4DBFF;
+    width: 49px;
+    height: 49px;
+    border-radius: 100%;
+    display: flex; align-items: center; justify-content: center; outline: 0;}
+
+   .custom-carousel .p-carousel-next{ right: 15px; left: auto;}
+   .custom-carousel .p-disabled{    opacity: 0.5;}
+   .custom-carousel  .p-carousel-prev-icon { display: block; width: 16px; height: 16px; border-top: 2px solid #040F41; border-left: 2px solid #040F41;  position: relative; }
+.custom-carousel .p-carousel-prev .p-carousel-prev-icon{ transform: rotate(-45deg); left: 3px; }
+.custom-carousel .p-carousel-next .p-carousel-prev-icon{ transform: rotate(135deg); right: 3px;}
+
+.custom-carousel .p-carousel-item{ width: 100%; height: 380px;}
+
+.custom-carousel .p-carousel-indicators { display: none!important;}
+
+.banner-slider{height: 300px !important;overflow: hidden;}
+.custom-carousel .p-carousel-item{
+  width: 100%;
+  height: 300px;
+}
+.p-carousel-item{width: 100% !important;min-width: 100vw;}
+.custom-carousel .p-carousel-item img{width: 100%  !important;height: auto;}
+
+@media (max-width: 767px){
+    .custom-carousel .p-carousel-prev, .custom-carousel .p-carousel-next{display: none;}
+    .custom-carousel .p-carousel-item, .banner-slider{height: auto !important;}
+}
+
+ 

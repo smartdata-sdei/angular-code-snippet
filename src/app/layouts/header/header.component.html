@@ -1,0 +1,357 @@
+<!-- ============Header============= -->
+<header class="">
+  <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="header-logo" routerLink=""><img alt="" src="assets/images/logo.svg" class="img-fluid"></a>
+      <div class="header-search">
+        <form>
+          <input class="inputitext" [formControl]="keyword" placeholder="Search" type="text">
+          <button (click)='search()' class="search-btn"><i class="fas fa-search"></i></button>
+        </form>
+
+      </div>
+
+
+      <div class="topheader-options">
+        <div class="dropdown state-dropdown">
+          <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown"
+            id="dropdownMenuButton" type="button"><img alt="" src="assets/images/bulgaria.png" class="mr-2">
+            UAE</button>
+          <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+            <a class="dropdown-item"><img alt="" src="assets/images/bulgaria.png"> UAE</a> <a class="dropdown-item"><img
+                alt="" src="assets/images/bahrain.png"> Bahrain</a>
+          </div>
+        </div>
+        <div class="dropdown language-dropdown">
+          <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle" data-toggle="dropdown"
+            id="dropdownMenuButton" type="button">En</button>
+          <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+            <a class="dropdown-item">Spanish</a> <a class="dropdown-item">Chinese</a>
+          </div>
+        </div>
+
+        <!-- <a href="#" class="btn btn-white btn-sm login-button d-none" data-toggle="modal" data-target="#LoginPopup"
+          *ngIf="!loginStatus">Login</a>
+        <a href="#" class="btn btn-white btn-sm login-button d-none" data-toggle="modal" *ngIf="loginStatus"
+          (click)="logoutUser()">Logout</a> -->
+        <div class="dropdown user-dropdown" *ngIf="loginStatus">
+          <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle no-after border-r-none"
+            data-toggle="dropdown" id="dropdownMenuButton" type="button"><svg aria-hidden="true" class="icon"
+              height="18px" width="18px">
+              <use xlink:href="assets/images/symbols.svg#useradmin_icon"></use>
+            </svg> {{userData?.first_name}}</button>
+          <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/user/my-account">My Account</a> <a class="dropdown-item"
+              (click)="logoutUser()">Logout</a>
+          </div>
+        </div>
+        <div class="dropdown user-dropdown" *ngIf="!loginStatus">
+          <button aria-expanded="false" aria-haspopup="true" class="btn dropdown-toggle no-after border-r-none"
+            data-toggle="dropdown" type="button" data-toggle="modal" data-target="#LoginPopup"><svg aria-hidden="true"
+              class="icon" height="18px" width="18px">
+              <use xlink:href="assets/images/symbols.svg#useradmin_icon"></use>
+            </svg> Login</button>
+          <!-- <div aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+            <a class="dropdown-item">My Account</a> <a class="dropdown-item" (click)="logoutUser()">Logout</a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-bottom bg-primary">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <nav class="navbar navbar-expand-md navbar-light pl-0 py-0">
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+          class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button"><span
+            class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item pl-0"><a class="nav-link" routerLink="/about-us">About Us</a></li>
+            <li class="nav-item dropdown categories-nav">
+              <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" href="#"
+                id="navbarDropdown" role="button">Categories</a>
+              <div aria-labelledby="navbarDropdown" class="dropdown-menu dropdown-categories" id="dropdownCategory">
+                <h4>Categories</h4>
+                <ul>
+                  <li *ngFor="let data of categories">
+                    <a (click)="moveToCategoryDetail(data.id)"><img [src]="transform(data?.image)" /></a>
+                    <a (click)="moveToCategoryDetail(data.id)" class="link">{{data?.name}}</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item dropdown categories-nav">
+              <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" href="#"
+                id="navbarDropdown" role="button">Sellers</a>
+              <div aria-labelledby="navbarDropdown" class="dropdown-menu dropdown-categories dropdown-seller"
+                id="dropdownSeller">
+                <h4>Sellers</h4>
+                <ul>
+                  <li *ngFor="let data of brands">
+                    <a (click)="moveToBrandDetail(data.id)"><img [src]="transform(data?.logo)" /></a>
+                    <a (click)="moveToBrandDetail(data.id)" class="link">{{data?.name}}</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item dropdown"> <a aria-expanded="false" aria-haspopup="true" class="nav-link"
+                data-toggle="dropdown" routerLink="/product/list" id="navbarDropdown" role="button">Products</a>
+            </li>
+
+            <!-- <li class="nav-item dropdown">
+              <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                href="#" id="navbarDropdown" role="button">Products</a>
+              <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                <a class="dropdown-item" routerLink="/product/details/1">Product 1</a> <a class="dropdown-item" routerLink="/product/details/2">Product 2</a> <a
+                  class="dropdown-item" routerLink="/product/details/3">Product 3</a> <a class="dropdown-item" routerLink="/product/details/4">Product
+                  4</a>
+              </div>
+            </li> -->
+            <!-- <li class="nav-item dropdown">
+              <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                href="#" id="navbarDropdown" role="button">Services</a>
+              <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                <a class="dropdown-item" href="#">Service 1</a> <a class="dropdown-item" href="#">Service 2</a> <a
+                  class="dropdown-item" href="#">Service 3</a> <a class="dropdown-item" href="#">Service
+                  4</a>
+              </div>
+            </li> -->
+            <!-- <li class="nav-item dropdown"> <a aria-expanded="false" aria-haspopup="true" class="nav-link"
+                data-toggle="dropdown" routerLink="/careers" id="navbarDropdown" role="button">Careers</a>
+            </li> -->
+            <li class="nav-item dropdown"> <a aria-expanded="false" aria-haspopup="true" class="nav-link"
+                data-toggle="dropdown" routerLink="/history" id="navbarDropdown" role="button">Imepress</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a aria-expanded="false" aria-haspopup="true" class="nav-link" data-toggle="dropdown"
+                routerLink="/contact-us" id="navbarDropdown" role="button">Contact Us</a>
+              <!-- <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                                  <a class="dropdown-item" href="#">Contact 1</a> <a class="dropdown-item" href="#">Contact 2</a> <a class="dropdown-item" href="#">Contact 3</a> <a class="dropdown-item" href="#">Contact
+                                  4</a>
+                              </div> -->
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+      <div class="cart-options">
+        <a routerLink="/cart"><svg aria-hidden="true" class="icon">
+            <use xlink:href="assets/images/symbols.svg#cart_icon_white"></use>
+          </svg> <span class="value">{{cartLength}}</span></a>
+
+        <a class="no-border" routerLink="/wishlist"><svg aria-hidden="true" class="icon">
+            <use xlink:href="assets/images/symbols.svg#heart_white_icon"></use>
+          </svg> <span class="value">{{wishlistLength}}</span></a>
+      </div>
+    </div>
+  </div>
+</header><!-- ============Header End============= -->
+
+<!-- Login Modal -->
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade custom-modal login-popup" id="LoginPopup"
+  role="dialog" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <button aria-label="Close" id="closeLoginModel" class="close closecross" data-dismiss="modal" type="button"><svg
+            aria-hidden="true" class="icon">
+            <use xlink:href="assets/images/symbols.svg#close_popup_icon"></use>
+          </svg></button>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="login-bg"><img alt="" src="assets/images/cyber-monday.png" width="100%"></div>
+          </div>
+          <div class="col-md-6">
+            <div class="login-form py-4 pr-4">
+              <p class="text-center"><a class="login-logo" routerLink=""><img alt=""
+                    src="assets/images/imepress-logo.png"></a></p>
+              <h1>Login</h1>
+              <p class="dont">Don't have an account?
+                <a aria-label="Close" data-dismiss="modal" data-target="#SignupPopup" data-toggle="modal" href="#">Sign
+                  Up</a>
+              </p>
+              <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+                <div class="form-group"
+                  [ngClass]="{'has-error':loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)}">
+                  <label for="">Email</label>
+                  <input class="form-control" formControlName="email" placeholder="example@mail.com" type="email"
+                    (keyup)="checkWhiteSpace($event)">
+                  <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                  <div *ngFor="let validation of account_validation_messages.email">
+                    <span class="help-block"
+                      *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">{{validation.message}}</span>
+                  </div>
+                </div>
+                <div class="form-group"
+                  [ngClass]="{'has-error':loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)}">
+                  <label for="">Password</label>
+                  <input class="form-control" placeholder="" type="password" (keyup)="checkWhiteSpace($event)"
+                    formControlName="password">
+                  <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                  <div *ngFor="let validation of account_validation_messages.password">
+                    <span class="help-block"
+                      *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">{{validation.message}}</span>
+                  </div>
+                </div><input class="btn btn-primary btn-lg btn-block" type="submit" value="login">
+              </form><a class="btn btn-link pl-0" aria-label="Close" data-dismiss="modal"
+                data-target="#forgotPasswordPopup" data-toggle="modal" href="#">Forgot Password?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- Signup Modal -->
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade custom-modal login-popup" id="SignupPopup"
+  role="dialog" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <button aria-label="Close" class="close closecross" id="closeRegistrationFormModel" data-dismiss="modal"
+          type="button"><svg aria-hidden="true" class="icon">
+            <use xlink:href="assets/images/symbols.svg#close_popup_icon"></use>
+          </svg></button>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="login-bg"><img alt="" src="assets/images/cyber-monday.png" width="100%"></div>
+          </div>
+          <div class="col-md-6">
+            <div class="login-form py-4 pr-4">
+              <p class="text-center"><a class="login-logo" routerLink=""><img alt=""
+                    src="assets/images/imepress-logo.png"></a></p>
+              <h1>Sign Up</h1>
+              <p class="dont">Already have an account? <a aria-label="Close" data-dismiss="modal"
+                  data-target="#LoginPopup" data-toggle="modal" href="#">Login</a></p>
+              <form [formGroup]="registrationForm" (ngSubmit)="registrationFormSubmit()">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group"
+                      [ngClass]="{'has-error':registrationForm.get('first_name').invalid && (registrationForm.get('first_name').dirty || registrationForm.get('first_name').touched)}">
+                      <label for="">First Name</label> <input class="form-control" placeholder="Ex. James" type="text"
+                        formControlName="first_name">
+                      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                      <div *ngFor="let validation of account_validation_messages.first_name">
+                        <span class="help-block"
+                          *ngIf="registrationForm.get('first_name').hasError(validation.type) && (registrationForm.get('first_name').dirty || registrationForm.get('first_name').touched)">{{validation.message}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group"
+                      [ngClass]="{'has-error':registrationForm.get('last_name').invalid && (registrationForm.get('last_name').dirty || registrationForm.get('last_name').touched)}">
+                      <label for="">Last Name</label> <input class="form-control" placeholder="Ex. Johnson" type="text"
+                        formControlName="last_name">
+                      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                      <div *ngFor="let validation of account_validation_messages.last_name">
+                        <span class="help-block"
+                          *ngIf="registrationForm.get('last_name').hasError(validation.type) && (registrationForm.get('last_name').dirty || registrationForm.get('last_name').touched)">{{validation.message}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group"
+                      [ngClass]="{'has-error':registrationForm.get('email').invalid && (registrationForm.get('email').dirty || registrationForm.get('email').touched)}">
+                      <label for="">Email</label> <input class="form-control" placeholder="example@mail.com"
+                        type="email" formControlName="email">
+                      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                      <div *ngFor="let validation of account_validation_messages.email">
+                        <span class="help-block"
+                          *ngIf="registrationForm.get('email').hasError(validation.type) && (registrationForm.get('email').dirty || registrationForm.get('email').touched)">{{validation.message}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group"
+                      [ngClass]="{'has-error':registrationForm.get('mobile_number').invalid && (registrationForm.get('mobile_number').dirty || registrationForm.get('mobile_number').touched)}">
+                      <label for="">Mobile Number</label> <input class="form-control" placeholder="0123456789"
+                        type="number" formControlName="mobile_number">
+                      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                      <div *ngFor="let validation of account_validation_messages.mobile_number">
+                        <span class="help-block"
+                          *ngIf="registrationForm.get('mobile_number').hasError(validation.type) && (registrationForm.get('mobile_number').dirty || registrationForm.get('mobile_number').touched)">{{validation.message}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group"
+                      [ngClass]="{'has-error':registrationForm.get('password').invalid && (registrationForm.get('password').dirty || registrationForm.get('password').touched)}">
+                      <label for="">Password</label> <input class="form-control" placeholder="" type="password"
+                        formControlName="password">
+                      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                      <div *ngFor="let validation of account_validation_messages.password">
+                        <span class="help-block"
+                          *ngIf="registrationForm.get('password').hasError(validation.type) && (registrationForm.get('password').dirty || registrationForm.get('password').touched)">{{validation.message}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group"
+                      [ngClass]="{'has-error':registrationForm.get('confirm_password').invalid && (registrationForm.get('confirm_password').dirty || registrationForm.get('confirm_password').touched)}">
+                      <label for="">Confirm Password</label> <input class="form-control" placeholder="" type="password"
+                        formControlName="confirm_password" (keyup)="checkWhiteSpace($event)">
+                      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                      <div *ngFor="let validation of account_validation_messages.confirm_password">
+                        <span class="help-block"
+                          *ngIf="registrationForm.get('confirm_password').hasError(validation.type) && (registrationForm.get('confirm_password').dirty || registrationForm.get('confirm_password').touched)">{{validation.message}}</span>
+                      </div>
+                      <div *ngIf="passwordNotMatchError" class="help-block">Password not match</div>
+                    </div>
+                  </div>
+                </div>
+                <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign Up">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Forgot Password Modal -->
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade custom-modal login-popup"
+  id="forgotPasswordPopup" role="dialog" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <button aria-label="Close" class="close closecross" id="closeForgotPasswordForm" data-dismiss="modal"
+          type="button"><svg aria-hidden="true" class="icon">
+            <use xlink:href="assets/images/symbols.svg#close_popup_icon"></use>
+          </svg></button>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="login-bg"><img alt="" src="assets/images/cyber-monday.png" width="100%"></div>
+          </div>
+          <div class="col-md-6">
+            <div class="login-form py-4 pr-4">
+              <p class="text-center"><a class="login-logo" routerLink=""><img alt=""
+                    src="assets/images/imepress-logo.png"></a></p>
+              <h1>Forgot Password</h1>
+              <p class="dont">Already have an account? <a aria-label="Close" data-dismiss="modal"
+                  data-target="#LoginPopup" data-toggle="modal" href="#">Login</a></p>
+              <form [formGroup]="forgotPasswordForm" (ngSubmit)="forgotPassword()">
+                <div class="form-group"
+                  [ngClass]="{'has-error':forgotPasswordForm.get('email').invalid && (forgotPasswordForm.get('email').dirty || forgotPasswordForm.get('email').touched)}">
+                  <label for="">Email</label>
+                  <input class="form-control" formControlName="email" placeholder="example@mail.com" type="email"
+                    (keyup)="checkWhiteSpace($event)">
+                  <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                  <div *ngFor="let validation of account_validation_messages.email">
+                    <span class="help-block"
+                      *ngIf="forgotPasswordForm.get('email').hasError(validation.type) && (forgotPasswordForm.get('email').dirty || forgotPasswordForm.get('email').touched)">{{validation.message}}</span>
+                  </div>
+                </div>
+                <input class="btn btn-primary btn-lg btn-block" type="submit" value="Forgot Password">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

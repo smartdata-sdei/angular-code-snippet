@@ -1,0 +1,55 @@
+<section class="point_info">
+    <div class="container text-center">
+        <div class="row mb-4">
+            <div class="col-md-12 text-center">
+            <h1>IMEPRESS...The Israeli Middle East Marketplace</h1>
+            </div>
+        </div><hr>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <h5>Free Shipping</h5>
+                <p>Free Shipping on all orders</p>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h5>High Quality Products</h5>
+                <p>Organization checked and verified</p>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h5>24/7 Support</h5>
+                <p>Support available all year</p>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h5>Return & Refund</h5>
+                <p>Refund available within 30 days</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==============Home Categories=============== -->
+
+<section class="home-categories">
+    <div class="container">
+        <div class="row">
+            <ng-container *ngFor="let data of homeCategoryDetails">
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="cagtegory_con">
+                        <img alt="" [src]="transform(data?.image)" width="100%">
+                        <div class="cate-name">
+                            <h4>{{data?.name}}</h4>
+                            <h5>{{data?.product_count}} products</h5>
+                        </div>
+                        <div class="category_Desc">
+                            <h3>{{data?.name}}</h3>
+                            <!-- <h6>That ago, was flatter what for was empire and yet spend</h6> -->
+                            <p>{{data?.description}}</p><a class=
+                            "btn btn-primary " routerLink="/category/list/{{data?.id}}">shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+</section><!-- ==============Home Categories End=============== -->

@@ -1,0 +1,14 @@
+<!-- =============Top Suppliars=============== -->
+<section class="top_suppliers pb-5">
+    <div class="container">
+        <h3 class="section_title mb-4">Top Suppliers</h3>
+      
+            <div class="supplier_images">
+                <ng-container *ngFor="let data of brandDetails">
+                <a href="#"><img alt="" [src]="transform(data?.logo)"></a>
+            </ng-container>
+            </div>
+       
+        <button class="view_more">View More</button>
+    </div>
+</section><!-- =============Top Suppliars End=============== -->
